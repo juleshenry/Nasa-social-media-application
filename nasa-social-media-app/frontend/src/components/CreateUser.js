@@ -22,7 +22,7 @@ const CreateUser = () => {
     };
 
     return (
-        <div style={{ width: "300px", margin: "auto", textAlign: "center" }}>
+        <div style={{ width: "300px", textAlign: "center" }}>
             <h2>Create Account</h2>
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
                 <input
