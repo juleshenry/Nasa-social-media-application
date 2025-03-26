@@ -20,7 +20,7 @@ function App() {
     <NasaApi />
     {/* <ShowPosts setPost={setPost} /> */}
     {/* <MakePost post={post} /> */}
-    <MakeComment />
+    {/* <MakeComment /> */}
     <CommentSection />
    
 

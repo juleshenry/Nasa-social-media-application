@@ -65,7 +65,8 @@ private UserPostsRepository userPostsRepository;
 
 @PostMapping("/posts")
 	public UserPosts createPostsForUser(@RequestBody UserPosts post) {
-		return userPostsRepository.save(post);
+		// post.setUserIdentifier(userProfile.getUsername());
+        return userPostsRepository.save(post);
 }
     
 
