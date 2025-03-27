@@ -3,6 +3,8 @@ package com.derek.nasa_social_media_app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +50,24 @@ public class UserController {
     public String loginPage() {
       return "loginPage";
     }
+
+
+
+    @GetMapping("/")
+    public String redirectToUserSpecificPage() {
+        String username = getLoggedInUsername();
+                return "redirect:/profile/" + username;
+            }
+        
+        private String getLoggedInUsername() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            return ((UserDetails) principal).getUsername();
+        } else {
+            return principal.toString();
+        }
+    }
+
 
 
 }
