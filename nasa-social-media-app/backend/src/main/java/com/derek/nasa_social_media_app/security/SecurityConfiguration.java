@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.derek.nasa_social_media_app.component.DataService;
 import com.derek.nasa_social_media_app.component.UserProfileService;
 
 @EnableWebSecurity
@@ -24,6 +25,9 @@ public class SecurityConfiguration {
 
 @Autowired
 private UserProfileService userProfileService;
+
+// @Autowired
+// private DataService data;
  
  
  
@@ -32,7 +36,7 @@ private UserProfileService userProfileService;
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(registry -> {
-                registry.requestMatchers("/users/posts","/save","/h2","/users/get", "/home","/names","/posts","/register/**")
+                registry.requestMatchers("/users/posts","/save","/profile/","/h2","/users/get", "/home","/names","/posts","/register/**")
                 .permitAll();
                 registry.anyRequest().authenticated();
 
@@ -54,6 +58,10 @@ private UserProfileService userProfileService;
         return userProfileService;
     }
 
+    // @Bean
+    // public DataService myDataService(){
+    // return data;
+    // }
  @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();

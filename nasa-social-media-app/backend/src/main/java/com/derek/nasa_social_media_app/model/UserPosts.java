@@ -67,14 +67,7 @@ public String toString() {
     return "UserPosts [id=" + id + ", text=" + text + ", userIdentifier=" + userIdentifier + "]";
 }
 
-public UserProfile getUserProfiles() {
-    return userProfiles;
-}
-
-public void setUserProfiles(UserProfile userProfiles) {
-    this.userProfiles = userProfiles;
-}
-
+//helpful
 // public UserProfile getUserProfiles() {
 //     return userProfiles;
 // }
@@ -82,6 +75,8 @@ public void setUserProfiles(UserProfile userProfiles) {
 // public void setUserProfiles(UserProfile userProfiles) {
 //     this.userProfiles = userProfiles;
 // }
+
+
 
 
 

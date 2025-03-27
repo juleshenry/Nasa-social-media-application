@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.derek.nasa_social_media_app.component.DataService;
 import com.derek.nasa_social_media_app.component.UserService;
 import com.derek.nasa_social_media_app.model.UserPosts;
 import com.derek.nasa_social_media_app.model.UserProfile;
@@ -33,7 +35,8 @@ private UserProfileRepository repository;
 @Autowired
 private UserPostsRepository userPostsRepository;
 
-
+@Autowired
+private DataService data;
 
 
 
@@ -113,7 +116,20 @@ return (List<UserPosts>) userPostsRepository.findAll();
 // }
 
 
+// @GetMapping("/profile")
+// public String getUserDetails(Authentication authentication , UserPosts posts) {
+//     if (authentication.getPrincipal() instanceof UserProfile userDetails) {
 
+//         return "Username: " + userDetails.getUsername() + ", Posts: " + posts.get();
+//     }
+//     return "No user details found.";
+// }
+
+
+@GetMapping("/profile/{name}")
+public List<UserPosts> getUsersProfile(@PathVariable("name") String name) {
+    return data.getUsersByName(name);
+}
 
 
 

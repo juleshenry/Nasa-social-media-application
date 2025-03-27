@@ -8,6 +8,7 @@ import NewApp from './components/NewApp.css';
 import MakeComment from './components/MakeComment';
 import CreateUser from './components/CreateUser';
 import CommentSection from './components/CommentSection';
+import SaveComment from './components/SaveComment';
 
 function App() {
   const [post, setPost] = useState('');
@@ -22,6 +23,7 @@ function App() {
     {/* <MakePost post={post} /> */}
     {/* <MakeComment /> */}
     <CommentSection />
+    <SaveComment />
    
 
 

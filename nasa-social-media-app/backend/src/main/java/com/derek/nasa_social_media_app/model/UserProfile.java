@@ -32,11 +32,11 @@ public class UserProfile {
 	// private List<UserPosts> posts;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "user_joined_table", // Custom join table name
-        joinColumns = @JoinColumn(name = "user_profiles_id"), // FK to Student
-        inverseJoinColumns = @JoinColumn(name = "posts_id") // FK to Course
-    )
+    // @JoinTable(
+    //     name = "user_joined_table", // Custom join table name
+    //     joinColumns = @JoinColumn(name = "user_profiles_id"), // FK to Student
+    //     inverseJoinColumns = @JoinColumn(name = "posts_id") // FK to Course
+    // )
 	private List<UserPosts> posts;
 
     public UserProfile(Integer id, String username, String userPassword) {
@@ -62,13 +62,13 @@ public class UserProfile {
     }
 
 
-    public List<UserPosts> getPosts() {
-        return posts;
-    }
+    // public List<UserPosts> getPosts() {
+    //     return posts;
+    // }
 
-    public void setPosts(List<UserPosts> posts) {
-        this.posts = posts;
-    }
+    // public void setPosts(List<UserPosts> posts) {
+    //     this.posts = posts;
+    // }
 
     public void setUsername(String username) {
         this.username = username;

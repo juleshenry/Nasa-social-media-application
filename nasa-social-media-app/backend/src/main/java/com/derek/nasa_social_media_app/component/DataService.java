@@ -1,0 +1,49 @@
+package com.derek.nasa_social_media_app.component;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+import com.derek.nasa_social_media_app.model.UserPosts;
+import com.derek.nasa_social_media_app.model.UserProfile;
+import com.derek.nasa_social_media_app.repository.UserPostsRepository;
+import com.derek.nasa_social_media_app.repository.UserProfileRepository;
+
+@Service
+public class DataService {
+
+    private UserProfileRepository repo;
+
+    @Autowired
+    private UserPostsRepository postRepo;
+
+
+
+    public List<UserPosts> getUsersByName(String details) {
+        
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        
+        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            details = userDetails.getUsername();
+
+            return postRepo.findByUserIdentifier(details);
+        
+        } else {
+            return null;
+        }
+               
+              
+        
+        
+    }
+
+
+
+    
+}

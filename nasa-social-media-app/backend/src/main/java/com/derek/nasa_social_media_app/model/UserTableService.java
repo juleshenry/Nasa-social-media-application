@@ -37,7 +37,7 @@ public class UserTableService {
         user1.setUsername("Dan");
         user1.setUserPassword("blue");
 
-        user1.getPosts().add(post1);
+        // user1.getPosts().add(post1);
 
         // Saving student also saves the relationships in the join table
         userProfileRepository.save(user1);
