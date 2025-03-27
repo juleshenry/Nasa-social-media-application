@@ -24,11 +24,11 @@ public class UserService {
 	}
 
 
-	static {
+// 	static {
 
-		users.add(new UserProfile(1,"derek","red"));
+// 		users.add(new UserProfile(1,"derek","red"));
 
-}
+// }
 
 
 

@@ -10,5 +10,5 @@ public interface UserProfileRepository extends CrudRepository<UserProfile, Integ
     
     Optional<UserProfile> findByUsername(String username);
 
-
+    UserProfile findByUsername2(String username);
 }

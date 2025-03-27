@@ -86,9 +86,33 @@ public List<UserPosts> findAllOnlyPosts() {
 
 
 return (List<UserPosts>) userPostsRepository.findAll();
-
-
 }
+
+
+
+// @PostMapping("/save")
+// public ResponseEntity<String> saveUserContent(@RequestBody String username, @RequestBody UserPosts userSave){
+//     // UserProfile user = repository.findByUsername(username);
+
+//     UserProfile user = repository.findByUsername2(username);
+  
+
+//     if(user !=null){
+
+//     userSave.setUserIdentifier(username);
+//     userPostsRepository.save(userSave);
+//     return ResponseEntity.ok("Content saved successfully!");
+    
+// //Must add else statement or will not work
+// } else {
+//     return ResponseEntity.badRequest().body("User not found!");
+    
+
+// } 
+
+// }
+
+
 
 
 

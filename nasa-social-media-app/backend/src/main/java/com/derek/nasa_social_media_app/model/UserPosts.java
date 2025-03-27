@@ -57,9 +57,14 @@ public void setText(String text) {
     this.text = text;
 }
 
+
+
+
+
+
 @Override
 public String toString() {
-    return "UserPosts [id=" + id + ", text=" + text + "]";
+    return "UserPosts [id=" + id + ", text=" + text + ", userIdentifier=" + userIdentifier + "]";
 }
 
 public UserProfile getUserProfiles() {

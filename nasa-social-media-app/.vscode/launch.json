@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NasaSocialMediaAppApplication<nasa-social-media-app-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.derek.nasa_social_media_app.NasaSocialMediaAppApplication",
+            "projectName": "nasa-social-media-app-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
