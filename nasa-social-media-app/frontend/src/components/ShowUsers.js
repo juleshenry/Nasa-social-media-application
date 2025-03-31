@@ -6,7 +6,7 @@ const ShowUsers = ({ username }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/profile/${username}`) // Dynamic path variable
+      .get(`http://localhost:3000/profile/${username}`) // Dynamic path variable
       .then((response) => setData(response.data))
       .catch((error) => console.error("Error fetching data:", error));
   }, [username]);

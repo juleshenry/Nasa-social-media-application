@@ -1,13 +1,18 @@
 package com.derek.nasa_social_media_app.controller;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -130,6 +135,65 @@ return (List<UserPosts>) userPostsRepository.findAll();
 public List<UserPosts> getUsersProfile(@PathVariable("name") String name) {
     return data.getUsersByName(name);
 }
+
+
+
+
+// @GetMapping("/")
+// public Map<String, String> getUserData() {
+//     String username = getLoggedInUsername(null);
+//     String text = getCustomMessagee(); // Get dynamic text
+    
+//     return Map.of(
+//         "name", username,
+//         "text", text
+//     );
+// }
+
+
+ 
+// public String getLoggedInUsername(@AuthenticationPrincipal UserDetails userDetails) {
+//     return userDetails.getUsername();
+// }  
+
+
+// private String getCustomMessage() {
+//     // Example logic: customize message based on username
+//     return username;
+// }
+
+
+// @GetMapping("/{username}")
+// public ResponseEntity<?> getUserProfile(@PathVariable String userIdentifier) {
+//     Optional<UserPosts> userOptional = userOptional.stream()
+//         .filter(u -> u.getUserIdentifier() == userIdentifier)
+//         .findFirst();
+
+//     if (userOptional.isEmpty()) {
+//         return ResponseEntity.status(HttpStatus.NOT_FOUND)
+//             .body(Map.of("error", "User not found"));
+//     }
+
+//     UserPosts user = userOptional.get();
+    
+//     // Create response with only selected fields
+//     Map<String, Object> response = new HashMap<>();
+//     response.put("username", user.getUserIdentifier());
+//     response.put("posts", user.getText());
+
+//     return ResponseEntity.ok(response);
+// }
+
+// @GetMapping("/{username}")
+// public ResponseEntity<?> getUserByUsername(@PathVariable String username) {
+//     return users.stream()
+//             .filter(user -> user.getUsername().equals(username))
+//             .findFirst()
+//             .map(ResponseEntity::ok)
+//             .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)
+//                     .body("User with username '" + username + "' not found"));
+// }
+
 
 
 
