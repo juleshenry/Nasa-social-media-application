@@ -45,6 +45,13 @@ public class DataService {
 
 
 
+
+    public List<UserPosts> getAllPosts() {
+        return (List<UserPosts>) postRepo.findAll();
+    }
+
+
+
     // public String getLoggedInUsername() {
     //     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     //     if (principal instanceof UserDetails) {

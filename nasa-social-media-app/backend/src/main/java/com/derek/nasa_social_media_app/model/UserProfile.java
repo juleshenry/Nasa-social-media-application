@@ -62,13 +62,13 @@ public class UserProfile {
     }
 
 
-    // public List<UserPosts> getPosts() {
-    //     return posts;
-    // }
+    public List<UserPosts> getPosts() {
+        return posts;
+    }
 
-    // public void setPosts(List<UserPosts> posts) {
-    //     this.posts = posts;
-    // }
+    public void setPosts(List<UserPosts> posts) {
+        this.posts = posts;
+    }
 
     public void setUsername(String username) {
         this.username = username;

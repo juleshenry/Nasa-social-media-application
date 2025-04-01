@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -79,7 +80,7 @@ private DataService data;
     
 
 @GetMapping("/users/posts")
-public List<UserPosts> findAllOnlyPosts() {
+public List<UserPosts> findAllPosts() {
 // List<UserPosts> users = (List<UserPosts>) userPostsRepository.findAll();
 
 // users.stream()
@@ -197,9 +198,41 @@ public List<UserPosts> getUsersProfile(@PathVariable("name") String name) {
 
 
 
+    
+
+    // Constructor injection
+  
+   
+
+
+        
+     @GetMapping("/user-posts")
+     public Map<String, String> getUserPosts() {
+        return data.getAllPosts().stream()
+        .collect(Collectors.toMap(UserPosts::getUserIdentifier, UserPosts::getText));
+        }
 
 
 
+    // Filter Users by Username using Streams
+    // @GetMapping("/user")
+    // public User getUserByUsername(@RequestParam String username) {
+    //     return userService.getAllUsers().stream()
+    //             .filter(user -> user.getUsername().equalsIgnoreCase(username))
+    //             .findFirst()
+    //             .orElse(null);
+    // }
+
+
+
+
+//     @GetMapping("/names")
+//     public List<String> findAllOnlyNames() {
+//     List<UserProfile> users = (List<UserProfile>) repository.findAll();
+//     return users.stream()
+//             .map(UserProfile::getUsername)
+//             .collect(Collectors.toList());
+// }
 
 
 
