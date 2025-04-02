@@ -11,6 +11,7 @@ import CommentSection from './components/CommentSection';
 import SaveComment from './components/SaveComment';
 import ShowUsers from './components/ShowUsers';
 import GetUserLink from './components/GetUserLink';
+import UserPosts from './components/UserPosts';
 
 function App() {
   const [post, setPost] = useState('');
@@ -28,6 +29,7 @@ function App() {
     <SaveComment />
     <ShowUsers />
     <GetUserLink />
+    <UserPosts />
 
     </div>
   );
