@@ -12,25 +12,50 @@ import SaveComment from './components/SaveComment';
 import ShowUsers from './components/ShowUsers';
 import GetUserLink from './components/GetUserLink';
 import UserPosts from './components/UserPosts';
+import UserPosts2 from './components2/UserPosts2';
+import CreateUser2 from './components2/CreateUser2';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import UserLogin from './components2/UserLogin';
+
+
+const WelcomePage = ({ match }) => {
+  return <h1>Welcome, {match.params.username}!</h1>;
+};
+
+
+
+
 
 function App() {
   const [post, setPost] = useState('');
   const [postList, setPostList] = useState([]);
 
+
+
+
+
   return (
     <div className="App">
+  <Router>
+      <Switch>
+        <Route path="/login" component={UserLogin} />
+        <Route path="/welcome/:username" component={WelcomePage} />
+        {/* Add other routes here */}
+      </Switch>
+    </Router>
 
-    <CreateUser />
+    <CreateUser2/>
     <NasaApi />
     {/* <ShowPosts setPost={setPost} /> */}
     {/* <MakePost post={post} /> */}
     {/* <MakeComment /> */}
-    <CommentSection />
+    {/* <CommentSection /> */}
     <SaveComment />
-    <ShowUsers />
-    <GetUserLink />
-    <UserPosts />
-
+    {/* <ShowUsers /> */}
+    {/* <GetUserLink /> */}
+    <UserPosts2 />
+   
+    
     </div>
   );
 }

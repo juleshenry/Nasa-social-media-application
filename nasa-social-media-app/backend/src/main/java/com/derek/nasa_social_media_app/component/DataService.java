@@ -51,6 +51,26 @@ public class DataService {
     }
 
 
+    public Optional<UserProfile> getUsersByProfile(String name) {
+        
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        
+        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            name = userDetails.getUsername();
+
+            return repo.findByUsername(name);
+        
+        } else {
+            return null;
+        }
+               
+              
+        
+        
+    }
+
+
 
     // public String getLoggedInUsername() {
     //     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

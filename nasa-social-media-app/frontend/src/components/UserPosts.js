@@ -30,7 +30,7 @@ const UserPosts = () => {
     return (
         <div>
             <h2>User Posts</h2>
-            {Object.entries(userPosts).map(([userIdentifier,text ]) => (
+            {Object.entries(userPosts).map(([userIdentifier, text]) => (
                 <div key={userIdentifier} style={{ marginBottom: "1rem" }}>
                     <h3>{userIdentifier}</h3>
                     <ul>

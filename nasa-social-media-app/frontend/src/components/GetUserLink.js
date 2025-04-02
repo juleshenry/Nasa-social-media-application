@@ -14,7 +14,7 @@ function GetUserLink() {
         .catch(error => console.error("Error:", error));
     }, []);
 
-    return <p>Redirecting...</p>;
+    
 }
 
 

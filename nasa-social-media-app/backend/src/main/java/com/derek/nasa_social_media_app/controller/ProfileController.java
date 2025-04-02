@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +31,7 @@ import com.derek.nasa_social_media_app.repository.UserProfileRepository;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ProfileController {
     
@@ -132,10 +133,21 @@ return (List<UserPosts>) userPostsRepository.findAll();
 // }
 
 
-@GetMapping("/profile/{name}")
-public List<UserPosts> getUsersProfile(@PathVariable("name") String name) {
-    return data.getUsersByName(name);
-}
+// @GetMapping("/profile/{name}")
+// public List<UserPosts> getUsersProfile(@PathVariable("name") String name) {
+//     return data.getUsersByName(name);
+// }
+
+@GetMapping("/profile/{username}")
+    public Optional<UserProfile> getUserInfo(@PathVariable("username") String username,
+                              @AuthenticationPrincipal UserProfile loggedInUser) {
+        // Check if the logged-in user is the same as the path variable
+        if (loggedInUser != null && loggedInUser.getUsername().equals(username)) {
+            return data.getUsersByProfile(username);
+        } else {
+            return null ;
+        }
+    }
 
 
 
