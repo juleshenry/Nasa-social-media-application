@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const LoginForm = () => {
+const UserLogin = () => {
   const [username, setUsername] = useState('');
   const [userPassword, setPassword] = useState('');
   const history = useHistory();  // React Router's useHistory hook for navigation
@@ -46,4 +46,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default UserLogin;
