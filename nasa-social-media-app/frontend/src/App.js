@@ -14,12 +14,20 @@ import GetUserLink from './components/GetUserLink';
 import UserPosts from './components/UserPosts';
 import UserPosts2 from './components2/UserPosts2';
 import CreateUser2 from './components2/CreateUser2';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import UserLogin from './components2/UserLogin';
+import { useParams } from 'react-router-dom';
+import ShowAllPosts from './components2/ShowAllPosts';
+import ShowAllPosts2 from './components2/ShowAllPosts2';
+import GetPostData from './components2/GetPostData';
+import ProfileLogin from './components2/ProfileLogin';
+import LoginForm from './components2/LoginForm';
+import Welcome from './components2/Welcome';
 
+const WelcomePage = () => {
+  const { username } = useParams();  // Access the "username" param from the URL
 
-const WelcomePage = ({ match }) => {
-  return <h1>Welcome, {match.params.username}!</h1>;
+  return <h1>Welcome, {username}!</h1>;
 };
 
 
@@ -37,11 +45,11 @@ function App() {
   return (
     <div className="App">
   <Router>
-      <Switch>
-        <Route path="/login" component={UserLogin} />
-        <Route path="/welcome/:username" component={WelcomePage} />
+      <Routes>  {/* Use Routes instead of Switch */}
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/profile/:username" element={<Welcome />} />
         {/* Add other routes here */}
-      </Switch>
+      </Routes>
     </Router>
 
     <CreateUser2/>
@@ -53,8 +61,11 @@ function App() {
     <SaveComment />
     {/* <ShowUsers /> */}
     {/* <GetUserLink /> */}
-    <UserPosts2 />
-   
+    {/* <UserPosts2 /> */}
+    {/* <ShowAllPosts/> */}
+    {/* <ShowAllPosts2 /> */}
+    <GetPostData />
+    
     
     </div>
   );

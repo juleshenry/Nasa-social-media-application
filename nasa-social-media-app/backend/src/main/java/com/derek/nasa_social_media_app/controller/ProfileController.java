@@ -79,7 +79,7 @@ private DataService data;
         return userPostsRepository.save(post);
 }
     
-
+@CrossOrigin(origins = "http://localhost:3000")
 @GetMapping("/users/posts")
 public List<UserPosts> findAllPosts() {
 // List<UserPosts> users = (List<UserPosts>) userPostsRepository.findAll();
@@ -98,6 +98,11 @@ public List<UserPosts> findAllPosts() {
 return (List<UserPosts>) userPostsRepository.findAll();
 }
 
+@PostMapping("/login")
+public ResponseEntity<?> login(@RequestBody UserProfile user) {
+  // Your login logic here
+  return ResponseEntity.ok("Login successful");
+}
 
 
 // @PostMapping("/save")
