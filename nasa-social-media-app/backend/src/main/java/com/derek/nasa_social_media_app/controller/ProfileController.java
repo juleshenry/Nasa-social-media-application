@@ -154,6 +154,13 @@ public ResponseEntity<?> login(@RequestBody UserProfile user) {
         }
     }
 
+//works but returns the whole derek object not just the username
+    @GetMapping("/getNames/{username}")
+    public Optional<UserProfile> getDummyName(@PathVariable("username") String username) {
+        return repository.findByUsername(username);
+    }
+    
+
 
 
 

@@ -23,12 +23,13 @@ import GetPostData from './components2/GetPostData';
 import ProfileLogin from './components2/ProfileLogin';
 import LoginForm from './components2/LoginForm';
 import Welcome from './components2/Welcome';
+// import MainLogin from './components2/MainLogin';
 
-const WelcomePage = () => {
-  const { username } = useParams();  // Access the "username" param from the URL
+// const WelcomePage = () => {
+//   const { username } = useParams();  // Access the "username" param from the URL
 
-  return <h1>Welcome, {username}!</h1>;
-};
+//   return <h1>Welcome, {username}!</h1>;
+// };
 
 
 
@@ -51,6 +52,8 @@ function App() {
         {/* Add other routes here */}
       </Routes>
     </Router>
+    
+    
 
     <CreateUser2/>
     <NasaApi />

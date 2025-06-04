@@ -1,5 +1,6 @@
 package com.derek.nasa_social_media_app.component;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import com.derek.nasa_social_media_app.repository.UserProfileRepository;
 @Service
 public class DataService {
 
+    @Autowired
     private UserProfileRepository repo;
 
     @Autowired
@@ -75,6 +77,11 @@ public class DataService {
     }
 
 
+    public String getUserNames(String name){
+
+     String names = ((UserProfile) repo.findAll()).getUsername();
+     return names;
+    }
 
     // public String getLoggedInUsername() {
     //     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
