@@ -23,6 +23,7 @@ import GetPostData from './components2/GetPostData';
 import ProfileLogin from './components2/ProfileLogin';
 import LoginForm from './components2/LoginForm';
 import Welcome from './components2/Welcome';
+import LoginFetchData from './components2/LoginDataFetch';
 // import MainLogin from './components2/MainLogin';
 
 // const WelcomePage = () => {
@@ -56,6 +57,7 @@ function App() {
     
 
     <CreateUser2/>
+    <LoginFetchData/>
     <NasaApi />
     {/* <ShowPosts setPost={setPost} /> */}
     {/* <MakePost post={post} /> */}

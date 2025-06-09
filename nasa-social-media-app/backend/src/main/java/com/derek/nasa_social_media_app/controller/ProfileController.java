@@ -143,22 +143,56 @@ public ResponseEntity<?> login(@RequestBody UserProfile user) {
 //     return data.getUsersByName(name);
 // }
 
-@GetMapping("/profile/{username}")
-    public Optional<UserProfile> getUserInfo(@PathVariable("username") String username,
-                              @AuthenticationPrincipal UserProfile loggedInUser) {
-        // Check if the logged-in user is the same as the path variable
-        if (loggedInUser != null && loggedInUser.getUsername().equals(username)) {
-            return data.getUsersByProfile(username);
-        } else {
-            return null ;
-        }
-    }
+// @GetMapping("/profile/{username}")
+//     public Optional<UserProfile> getUserInfo(@PathVariable("username") String username,
+//                               @AuthenticationPrincipal UserProfile loggedInUser) {
+//         // Check if the logged-in user is the same as the path variable
+//         if (loggedInUser != null && loggedInUser.getUsername().equals(username)) {
+//             return data.getUsersByProfile(username);
+//         } else {
+//             return null ;
+//         }
+//     }
 
 //works but returns the whole derek object not just the username
     @GetMapping("/getNames/{username}")
     public Optional<UserProfile> getDummyName(@PathVariable("username") String username) {
         return repository.findByUsername(username);
     }
+
+
+// @CrossOrigin(origins = "http://localhost:3000")
+// @GetMapping("/profile")
+// public ResponseEntity<String> getProfile(@AuthenticationPrincipal UserProfile userDetails) {
+//     return ResponseEntity.ok(userDetails.getUsername()); // or any custom field
+// }
+
+
+//works
+@GetMapping("/profile")
+public ResponseEntity<?> getProfile(@AuthenticationPrincipal org.springframework.security.core.userdetails.User user) {
+    if (user == null) {
+        return ResponseEntity.status(401).body("User not authenticated");
+    }
+
+    return ResponseEntity.ok(Map.of("username", user.getUsername()));
+}
+
+// @GetMapping("/profile")
+// public ResponseEntity<?> getProfile(@AuthenticationPrincipal MyUserDetails userDetails) {
+//     if (userDetails == null) {
+//         return ResponseEntity.status(401).body("User not authenticated");
+//     }
+
+//     return ResponseEntity.ok(.map(UserProfile::getUsername)
+//             .collect(Collectors.toList());
+//     ));
+// }
+
+
+
+
+
     
 
 
