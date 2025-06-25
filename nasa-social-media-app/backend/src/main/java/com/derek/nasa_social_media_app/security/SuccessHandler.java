@@ -17,7 +17,7 @@ public class SuccessHandler extends SavedRequestAwareAuthenticationSuccessHandle
 public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
         Authentication authentication) throws ServletException, IOException {
     
-            setDefaultTargetUrl("http://localhost:3000");
+            setDefaultTargetUrl("http://localhost:3000/profile");
 
     super.onAuthenticationSuccess(request, response, authentication);
 }
