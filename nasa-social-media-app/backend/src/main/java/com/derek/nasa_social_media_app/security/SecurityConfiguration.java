@@ -37,7 +37,13 @@ private UserProfileService userProfileService;
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(registry -> {
+
                 registry.requestMatchers("/users/posts","/save","/user-posts","/profile/derek","/getNames/derek","/profile","/h2-console","/users/get", "/home","/names","/posts","/register/**")
+
+
+       
+
+
                 .permitAll();
                 registry.anyRequest().authenticated();
 
